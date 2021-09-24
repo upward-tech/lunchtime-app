@@ -32,10 +32,13 @@ console.log(process.env.PRINTER);
 // THIS FUNCTION WORKS IN COMMAND LINE
 // pdfToPrinter.print('C:/Users/aw/Work Drive/appsheet/data/Lunch-2353819/C - Client, Onbding/Currey & Company/Lunch Ordering System/Orders/CurreyLunchtimeOrder20210923_205325_300.pdf', {printer: process.env.PRINTER})
 
-const watcher = chokidar.watch(process.env.FOLDER, {ignored: /^\./, persistent: true});
+// Create the new PDF printing function
+let printNewPDF = path => pdfToPrinter.print(path, {printer: process.env.PRINTER})
+
+const watcher = chokidar.watch(process.env.FOLDER, {ignored: /^\./, persistent: true, ignoreInitial: true});
 watcher
     // .on('add', path => log(`Directory ${path} has been added`))
-    .on('add', path => pdfToPrinter.print(path, {printer: process.env.PRINTER}))
+    .on('add', printNewPDF)
     
     // .on('add', path => pdfToPrinter.print(path, {printer: process.env.PRINTER}))
 

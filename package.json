@@ -4,7 +4,10 @@
     "description": "A simple service to print new PDF meal orders",
     "main": "app.js",
     "scripts": {
-        "start": "node ."
+        "setup": "npm install && node setup.js",
+        "start": "node .",
+        "svc-install": "node service.js install",
+        "svc-uninstall": "node service.js uninstall"
     },
     "author": "Andrew Kelly",
     "dependencies": {

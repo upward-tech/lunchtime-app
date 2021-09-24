@@ -1,0 +1,15 @@
+{
+    "name": "currey-lunchtime",
+    "version": "1.0.0",
+    "description": "A simple service to print new PDF meal orders",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ."
+    },
+    "author": "Andrew Kelly",
+    "dependencies": {
+        "chokidar": "^3.5.2",
+        "dotenv": "^10.0.0",
+        "pdf-to-printer": "^1.7.0"
+    }
+}

@@ -1,4 +1,5 @@
 @echo off
 @echo Setting up Lunchtime App...
-call npm run setup
+call npm install --silent
+call node setup.js
 call npm run svc-install

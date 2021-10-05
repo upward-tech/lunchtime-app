@@ -14,6 +14,7 @@
         "chokidar": "^3.5.2",
         "dotenv": "^10.0.0",
         "node-windows": "^1.0.0-beta.6",
-        "pdf-to-printer": "^1.7.0"
+        "pdf-to-printer": "^1.7.0",
+        "prompts": "^2.4.1"
     }
 }

@@ -1,8 +1,31 @@
 const fs = require('fs')
+const prompts = require('prompts')
 
-if (! fs.existsSync('.env')) {
-    console.log('Copying .env.example to .env...')
-    fs.copyFileSync('.env.example', '.env')
+;(async () => {
+    const response = await prompts([
+        {
+            type: 'text',
+            name: 'PRINTER',
+            message: 'What is the name of the printer?',
+            initial: 'Lunchtime'
+        },
+        {
+            type: 'text',
+            name: 'FOLDER',
+            message: 'What is the directory PDF orders will be downloaded to?',
+            initial: 'C:/Users/.../Test-Orders',
+            validate: value => {
+                if (fs.existsSync(value) && fs.lstatSync(value).isDirectory()) {
+                    return true
+                }
 
-    console.log('Please set your variables in .env')
-}
+                return 'Please enter a valid directory'
+            }
+        }
+    ]);
+
+    fs.writeFileSync('.env',
+        'PRINTER=' + response.PRINTER + "\n" +
+        "FOLDER='" + response.FOLDER + "'"
+    )
+})()

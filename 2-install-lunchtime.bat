@@ -1,4 +1,4 @@
 @echo off
 @echo Setting up Lunchtime App...
-npm run setup
-npm run svc-install
+call npm run setup
+call npm run svc-install

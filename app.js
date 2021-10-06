@@ -15,7 +15,7 @@ function printNewPDF(path) {
     }
 }
 
-const watcher = chokidar.watch(process.env.FOLDER, {ignored: /^\./, persistent: true, ignoreInitial: true});
+const watcher = chokidar.watch(process.env.FOLDER, {ignored: /^\./, persistent: true, ignoreInitial: true, depth: 3});
 
 // This watches for new files in the folder
 watcher.on('add', printNewPDF)
